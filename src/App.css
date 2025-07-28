@@ -1,0 +1,383 @@
+/* General Body and HTML structure */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #1a1a1a; /* Dark background for the whole app */
+    color: #e0e0e0; /* Light text color */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure app takes full viewport height */
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+.app-header {
+    width: 100%;
+    max-width: 900px; /* Increased max-width for better layout */
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 15px; /* Space between header items */
+}
+
+.app-title-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.app-header h1 {
+    margin: 0;
+    color: #00bcd4; /* A vibrant blue for the title */
+    font-size: 2.5em;
+    text-shadow: 0 0 8px rgba(0, 188, 212, 0.5); /* Subtle glow */
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-link {
+    background-color: #2196F3; /* Blue for nav links */
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link:hover {
+    background-color: #1976d2;
+    transform: translateY(-2px);
+}
+
+.nav-text {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.sign-out-btn {
+    background-color: #e53935; /* Red for sign-out */
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.sign-out-btn:hover {
+    background-color: #c62828;
+    transform: translateY(-2px);
+}
+
+/* Main Content Area */
+.app-main-content {
+    width: 100%;
+    max-width: 900px; /* Increased max-width */
+    flex-grow: 1; /* Allows it to take up available space */
+    background-color: #2a2a2a; /* Slightly lighter dark background for content */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+/* Footer Styles */
+.app-footer {
+    width: 100%;
+    max-width: 900px;
+    padding: 15px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* Loading and Info Messages */
+.loading-full-page, .loading-message, .info-message, .no-crewmates-message {
+    text-align: center;
+    font-style: italic;
+    color: #aaa;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+/* Auth Component Styles (from previous version, ensure consistent) */
+.auth-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.auth-container h2 {
+    color: #00bcd4;
+    margin-bottom: 25px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.auth-form input {
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    color: #e0e0e0;
+    font-size: 1em;
+}
+
+.auth-form input::placeholder {
+    color: #888;
+}
+
+.auth-form button {
+    background-color: #4CAF50; /* Green for action buttons */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+.auth-form button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+.toggle-auth-mode {
+    background: none;
+    border: none;
+    color: #00bcd4;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.toggle-auth-mode:hover {
+    color: #008c9e;
+}
+
+
+/* Crewmate List Page Styles */
+.crewmate-list-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.crewmate-list-container h2 {
+    color: #00bcd4;
+    margin-bottom: 25px;
+}
+
+.crewmate-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.crewmate-item {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative; /* For positioning actions */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.crewmate-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.crewmate-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Make the whole area clickable */
+    padding-bottom: 10px; /* Space for buttons below */
+}
+
+.crewmate-link h3 {
+    margin: 0 0 10px 0;
+    color: #4CAF50; /* Green for crewmate names */
+    font-size: 1.8em;
+}
+
+.crewmate-link p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #ccc;
+}
+
+.crewmate-link .created-at {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.crewmate-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+/* General Button Styles */
+.button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none; /* For Link components */
+    display: inline-block; /* For Link components */
+    text-align: center;
+}
+
+.primary-button {
+    background-color: #00bcd4; /* Cyan */
+    color: white;
+}
+
+.primary-button:hover:not(:disabled) {
+    background-color: #008c9e;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background-color: #607d8b; /* Blue-grey */
+    color: white;
+}
+
+.secondary-button:hover:not(:disabled) {
+    background-color: #455a64;
+    transform: translateY(-2px);
+}
+
+.delete-button {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.delete-button:hover:not(:disabled) {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+.button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+/* Crewmate Form Styles (Create & Edit) */
+.crewmate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    max-width: 500px;
+    margin: 20px auto; /* Center the form */
+}
+
+.crewmate-form label {
+    font-size: 1.1em;
+    color: #00bcd4;
+    margin-bottom: -10px; /* Pull label closer to input */
+    text-align: left;
+}
+
+.crewmate-form input[type="text"] {
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #444;
+    color: #e0e0e0;
+    font-size: 1em;
+    width: calc(100% - 24px); /* Account for padding */
+}
+
+.crewmate-form input[type="text"]::placeholder {
+    color: #888;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .app-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .app-header h1 {
+        font-size: 2em;
+    }
+
+    .app-main-content {
+        padding: 20px;
+    }
+
+    .crewmate-actions .button {
+        width: 100%; /* Full width buttons on small screens */
+    }
+
+    .form-actions .button {
+        width: 100%;
+    }
+}
+
