@@ -14,13 +14,13 @@ function App() {
 
   useEffect(() => {
     // Initial session check
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then( ({ data: { session } }) => {
       setSession(session);
       setLoadingSession(false);
     });
 
     // Listen for authentication state changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange( (_event, session) => {
       setSession(session);
       setLoadingSession(false);
     });
@@ -44,8 +44,7 @@ function App() {
             {session ? (
               <>
                 <Link to="/create" className="nav-link">Add Crewmate</Link>
-                <button onClick={() => supabase.auth.signOut()} className="sign-out-btn">
-                  Sign Out ({session.user?.email})
+                <button onClick={() => supabase.auth.signOut()} className="sign-out-btn"> Sign Out ({session.user?.email})
                 </button>
               </>
             ) : (

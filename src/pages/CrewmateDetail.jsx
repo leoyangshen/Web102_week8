@@ -67,14 +67,11 @@ function CrewmateDetail({ session }) {
       <p><strong>ID:</strong> {crewmate.id}</p>
       <p><strong>Created On:</strong> {new Date(crewmate.created_at).toLocaleString()}</p>
       <p>
-        <strong>Members:</strong> {crewmate.members && crewmate.members.length > 0
-          ? crewmate.members.join(', ')
-          : 'None yet'}
+        <strong>Members:</strong> {crewmate.members && crewmate.members.length > 0 ? crewmate.members.join(', ') : 'None yet'}
       </p>
       {/* Add more "extra information" here if your table had more columns */}
       <p>
-        This is a dedicated detail page for {crewmate.name}. You can add more specific
-        information or complex layouts here that wouldn't fit on the summary list.
+        This is a dedicated detail page for {crewmate.name}. You can add more specific information or complex layouts here that wouldn't fit on the summary list.
       </p>
 
       <div className="detail-actions">
